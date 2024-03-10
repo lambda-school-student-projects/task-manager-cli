@@ -19,6 +19,21 @@ class TaskManager
     puts "Task added!"
   end
 
+  def update_task(input)
+    puts "Enter name of task to edit:"
+    task_name = input.gets&.chomp
+
+    task_to_edit = @tasks.find { |task| task.name == task_name }
+    if task_to_edit
+      puts "Enter due date:"
+      new_due_date = input.gets&.chomp
+      task_to_edit.due_date = new_due_date
+      puts "Task updated successfully!"
+    else
+      puts "Task not found!"
+    end
+  end
+
   def run
   
   end
