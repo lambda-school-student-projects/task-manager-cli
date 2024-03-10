@@ -13,9 +13,15 @@ class TestTask < MiniTest::Test
   end
 
   def test_update_task_name
+    task = Task.new("Buy clothing", "05-05-2000", "Incomplete")
+    new_task_name = "Clean the litter box"
+    task.name = new_task_name
+
+    assert_equal new_task_name, task.name
   end
 
   def test_update_task_due_date
+    
   end
 
   def test_update_task_status
