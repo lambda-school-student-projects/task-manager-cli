@@ -21,7 +21,11 @@ class TestTask < MiniTest::Test
   end
 
   def test_update_task_due_date
-    
+    task = Task.new("Buy clothing", "05-05-2000", "Incomplete")
+    new_task_due_date = "10-31-2024"
+    task.due_date = new_task_due_date
+
+    assert_equal new_task_due_date, task.due_date
   end
 
   def test_update_task_status
