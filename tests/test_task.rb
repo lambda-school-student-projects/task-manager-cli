@@ -29,6 +29,11 @@ class TestTask < MiniTest::Test
   end
 
   def test_update_task_status
+    task = Task.new("Buy clothing", "05-05-2000", "Incomplete")
+    new_task_status = "Completed"
+    task.status = new_task_status
+
+    assert_equal new_task_status, task.status
   end
 
 end
