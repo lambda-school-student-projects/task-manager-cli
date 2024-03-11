@@ -43,6 +43,29 @@ class TestTaskManager < MiniTest::Test
   end
 
   def test_display_tasks
+    task_1 = Task.new('Buy cat food', '03-13-2024', 'Incomplete')
+    task_2 = Task.new('Buy cat litter', '03-15-2024', 'Incomplete')
+    @task_manager.tasks << task_1 << task_2
+
+    output = StringIO.new
+    $stdout = output
+    @task_manager.display_tasks
+    
+    expected_output = <<~OUTPUT
+        Tasks:
+        Task Name: Buy cat food
+        Due Date: 03-13-2024
+        Status: Incomplete
+        ------------------------
+        Task Name: Buy cat litter
+        Due Date: 03-15-2024
+        Status: Incomplete
+        ------------------------
+    OUTPUT
+    
+    assert_equal expected_output, output.string
+  ensure
+    $stdout = STDOUT
   end
 
   def test_run
