@@ -59,6 +59,26 @@ class TaskManager
     end
   end
   
-  def run
+  def run(input = $stdin)
+    loop do
+      puts "What would you like to do? (add/update/remove/display/exit)"
+      selection = input.gets&.chomp.downcase
+
+      case selection
+      when "add"
+        add_task(input)
+      when "update"
+        update_task(input)
+      when "remove"
+        remove_task(input)
+      when "display"
+        display_tasks
+      when "exit"
+        puts "Thank you for using the TaskMaster app!"
+        break
+      else
+        puts "Invalid choice. Please try again."
+      end
+    end
   end
 end
