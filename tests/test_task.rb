@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative '../task'
 
-class TestTask < MiniTest::Test
+class TestTask < Minitest::Test
   def setup
     @task = Task.new("Buy clothing", "05-05-2000", "Incomplete")
   end

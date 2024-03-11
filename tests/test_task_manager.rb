@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative '../task_manager'
 
-class TestTaskManager < MiniTest::Test
+class TestTaskManager < Minitest::Test
 
   def setup
     @task_manager = TaskManager.new

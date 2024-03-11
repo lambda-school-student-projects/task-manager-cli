@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative '../app'
 
-class AppTest < MiniTest::Test
+class AppTest < Minitest::Test
   def setup
     @app = App.new
   end
