@@ -49,6 +49,16 @@ class TaskManager
     end
   end
 
+  def display_tasks
+    puts "Tasks:"
+    @tasks.each do |task|
+      puts "Task Name: #{task.name}"
+      puts "Due Date: #{task.due_date}"
+      puts "Status: #{task.status}"
+      puts "------------------------"
+    end
+  end
+  
   def run
   end
 end
