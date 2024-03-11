@@ -24,6 +24,7 @@ class TaskManager
     task_name = input.gets&.chomp
 
     task_to_edit = @tasks.find { |task| task.name == task_name }
+    
     if task_to_edit
       puts "Enter due date:"
       new_due_date = input.gets&.chomp
@@ -34,7 +35,20 @@ class TaskManager
     end
   end
 
+  def remove_task(input)
+    puts "Enter name of task to remove:"
+    task_name = input.gets&.chomp
+
+    task_to_remove = @tasks.find { |task| task.name == task_name }
+    
+    if task_to_remove
+      @tasks.delete(task_to_remove)
+      puts "Task updated successfully!"
+    else
+      puts "Task not found!"
+    end
+  end
+
   def run
-  
   end
 end

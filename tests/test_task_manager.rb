@@ -34,7 +34,12 @@ class TestTaskManager < MiniTest::Test
   end
 
   def test_remove_task
-    
+    task = Task.new('Buy cat food', '03-13-2024', 'Incomplete')
+    @task_manager.tasks << task
+    input = StringIO.new("Buy cat food\n")
+    @task_manager.remove_task(input)
+
+    assert_equal [], @task_manager.tasks
   end
 
   def test_display_tasks
